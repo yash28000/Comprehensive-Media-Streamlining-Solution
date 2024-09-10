@@ -1,7 +1,6 @@
-import { link } from "fs";
 import Link from "next/link";
 
-let menuOptions = [
+const menuOptions = [
   {
     name: "Contact",
     link: "/contact",

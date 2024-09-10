@@ -2,8 +2,7 @@
 
 import { Button } from "@/components/commons/button";
 import { Input } from "@/components/commons/input";
-import { stat } from "fs";
-import { ArrowRight, InfoIcon, MoveRight } from "lucide-react";
+import { InfoIcon, MoveRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 interface LoginFormProps {
@@ -35,7 +34,9 @@ export const LoginForm = ({ state, info, onSubmit }: LoginFormProps) => {
                 type="email"
                 classname="bg-zinc-100"
                 value={input}
-                onChange={setInput}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setInput(e.target.value)
+                }
               />
             </span>
             <Button type="button" onClick={() => onSubmit && onSubmit(input)}>
@@ -67,7 +68,9 @@ export const LoginForm = ({ state, info, onSubmit }: LoginFormProps) => {
                 type="password"
                 classname="bg-zinc-100"
                 value={input}
-                onChange={setInput}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setInput(e.target.value)
+                }
               />
             </span>
             <span className="text-xs">
@@ -95,7 +98,7 @@ export const LoginForm = ({ state, info, onSubmit }: LoginFormProps) => {
         <>
           <div className="py-7 border-b-[1px] border-zinc-200">
             <p className="text-sm mb-5 font-extralight">
-              Don't have an account?
+              Don{"'"}t have an account?
             </p>
             <Button className="bg-transparent text-blue-600 outline">
               <span className="w-full flex justify-between items-center">
