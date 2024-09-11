@@ -1,10 +1,10 @@
+"use client";
 import { cn } from "@/utils/class.merge";
 
 interface InputProps extends React.AllHTMLAttributes<HTMLInputElement> {
-  onChange?: React.FormEventHandler<HTMLInputElement>;
   classname?: string;
 }
-export const Input = ({ onChange, classname, ...props }: InputProps) => {
+export const Input = ({ classname, ...props }: InputProps) => {
   return (
     <input
       {...props}

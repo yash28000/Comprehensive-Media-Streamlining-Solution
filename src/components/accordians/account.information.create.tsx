@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { Button } from "../commons/button";
 import { Input } from "../commons/input";

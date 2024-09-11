@@ -1,7 +1,7 @@
 import { userLogin } from "@/utils/auth.services/auth.service";
 import { NextRequest, NextResponse } from "next/server";
 import { serialize } from "cookie";
-export const POST = async (req: NextRequest, res: NextResponse) => {
+export const POST = async (req: NextRequest) => {
   const body = await req.json();
   const resp = await userLogin(body);
   const serialized = serialize("session", resp.access.token, {

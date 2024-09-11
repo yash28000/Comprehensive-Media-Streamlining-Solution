@@ -1,5 +1,4 @@
 "use client";
-
 import { Button } from "@/components/commons/button";
 import { Input } from "@/components/commons/input";
 import { InfoIcon, MoveRight } from "lucide-react";
