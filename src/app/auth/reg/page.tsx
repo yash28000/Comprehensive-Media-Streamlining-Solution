@@ -15,6 +15,7 @@ export default function RegPage() {
       </div>
       <div className="w-full">
         <RegForm />
+        
       </div>
     </div>
   );
