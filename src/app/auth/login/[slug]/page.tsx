@@ -7,7 +7,10 @@ interface PageProps {
 }
 export default function LoginPage({ params }: PageProps) {
   const handleClick = (password: string) => {
-    console.log(password);
+    console.log({
+      password,
+      email: decodeURIComponent(params.slug),
+    });
   };
   return (
     <div className="w-full lg:h-[calc(100vh-3rem)] h-[calc(100vh-200px)] grid grid-cols-3">

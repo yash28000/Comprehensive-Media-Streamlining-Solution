@@ -4,6 +4,7 @@ import { Button } from "@/components/commons/button";
 import { Input } from "@/components/commons/input";
 import { InfoIcon, MoveRight } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 interface LoginFormProps {
   state: "info" | "auth";
@@ -13,10 +14,11 @@ interface LoginFormProps {
 
 export const LoginForm = ({ state, info, onSubmit }: LoginFormProps) => {
   const [input, setInput] = useState("");
+  const router = useRouter();
   return (
     <div className="w-full max-w-[500px] h-full px-10 py-10">
       <div className="mb-8">
-        <h1 className="text-3xl ">Log in to elvideos</h1>
+        <h1 className="text-3xl font-kanit">Log in to elvideos</h1>
       </div>
       <form
         className={`mt-2 space-y-5 border-t-[1px] ${
@@ -100,7 +102,10 @@ export const LoginForm = ({ state, info, onSubmit }: LoginFormProps) => {
             <p className="text-sm mb-5 font-extralight">
               Don{"'"}t have an account?
             </p>
-            <Button className="bg-transparent text-blue-600 outline">
+            <Button
+              className="bg-transparent text-blue-600 outline"
+              onClick={() => router.push("/auth/reg")}
+            >
               <span className="w-full flex justify-between items-center">
                 <p className="text-sm">Create your account</p>
                 <MoveRight size={20} />

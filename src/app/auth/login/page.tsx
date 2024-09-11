@@ -1,7 +1,7 @@
 "use client";
 import { LoginForm } from "@/components/forms/auth.forms/login";
 import { useRouter } from "next/navigation";
-
+//@ts-ignore
 export default function LoginPage() {
   const router = useRouter();
   const handleClick = (email: string) => {
