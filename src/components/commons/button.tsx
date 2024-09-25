@@ -2,11 +2,13 @@ import { cn } from "@/utils/class.merge";
 
 interface ButtonProps extends React.AllHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
+  loading?: boolean;
 }
 export const Button = ({
   children,
   type,
   className,
+  loading,
   ...props
 }: ButtonProps) => {
   return (
@@ -18,7 +20,9 @@ export const Button = ({
         className || ""
       )}
     >
-      {children}
+      {
+        loading ? <span>Loading...</span> : children
+      }
     </button>
   );
 };

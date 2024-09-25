@@ -5,6 +5,7 @@ import { InfoIcon, MoveRight } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 interface LoginFormProps {
   state: "info" | "auth";
   info?: string;
