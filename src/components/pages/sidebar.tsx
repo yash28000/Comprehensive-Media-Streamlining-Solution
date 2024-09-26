@@ -26,7 +26,7 @@ const Sidebar = ({ className }: SidebarProps) => {
       <div className="flex flex-col h-full">
         <div className="flex-grow space-y-4 py-4">
           <div className="px-3 py-2">
-            <h1 className="font-playwrite-de-grund text-xl font-bold mb-3 ml-3">
+            <h1 className=" font-kanit text-xl font-bold mb-3 ml-3">
               elVideos
             </h1>
             <div className="space-y-1">
@@ -81,7 +81,7 @@ const Sidebar = ({ className }: SidebarProps) => {
                 <Progress value={33} />
                 <span className="flex items-center justify-between">
                   <p>Limit</p>
-                  <p>0 of 1gb</p>
+                  <p>0 of 1 GB</p>
                 </span>
               </div>
             </div>
