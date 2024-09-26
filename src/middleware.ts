@@ -6,9 +6,9 @@ export async function middleware(req: NextRequest) {
   if (token && pathname.includes("auth")) {
     return NextResponse.redirect(new URL("/", req.url));
   }
-  if (!token && !pathname.includes("auth")) {
-    return NextResponse.redirect(new URL("/auth/login", req.url));
-  }
+  // if (!token && !pathname.includes("auth")) {
+  //   return NextResponse.redirect(new URL("/auth/login", req.url));
+  // }
 }
 export const config = {
   matcher: "/((?!api|static|.*\\..*|_next).*)",

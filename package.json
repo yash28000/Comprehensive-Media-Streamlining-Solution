@@ -9,8 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/playwrite-de-grund": "^5.1.0",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-collapsible": "^1.1.0",
+    "@radix-ui/react-progress": "^1.1.0",
+    "@radix-ui/react-scroll-area": "^1.1.0",
+    "@radix-ui/react-separator": "^1.1.0",
+    "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cookie": "^0.6.0",
