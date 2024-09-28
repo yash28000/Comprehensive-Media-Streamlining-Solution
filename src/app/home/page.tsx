@@ -5,7 +5,7 @@ import { Separator } from "@/components/ui/separator";
 const Home = () => {
   return (
     <div className="flex h-screen">
-      <div className="flex-[0.8]">
+      <div className="flex-[0.88]">
         {" "}
         <Sidebar />
       </div>
