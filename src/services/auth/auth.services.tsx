@@ -1,11 +1,12 @@
-import { IRegPayload } from "./auth.types";
+import { getClientToken } from "@/utils/functions";
+import { ILoginPayload, IRegPayload } from "./auth.types";
 
 export const registerUser = (payload: IRegPayload) => {
   const body = {
     name: `${payload.firstName} ${payload.lastName}`,
     ...payload,
   };
-  return fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/user`, {
+  return fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -20,6 +21,16 @@ export const verifyUser = (body: { id: string; otp: string }) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+};
+
+export const userLogin = async (body: ILoginPayload) => {
+  return fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/login`, {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
     },
     body: JSON.stringify(body),
   });

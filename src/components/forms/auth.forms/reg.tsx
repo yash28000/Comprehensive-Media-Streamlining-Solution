@@ -19,8 +19,9 @@ export const RegForm = () => {
     }
   }, [otp]);
   const handleClick = async () => {
-    const resp = await fetch(`/api/auth/reg?id=${id}&otp=${otp}`, {
-      method: "GET",
+    const resp = await fetch(`/api/auth/reg`, {
+      method: "POST",
+      body: JSON.stringify({ userId: id, otp }),
       headers: {
         "Content-Type": "application/json",
       },

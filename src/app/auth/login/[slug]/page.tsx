@@ -1,7 +1,10 @@
 "use client";
 import { LoginForm } from "@/components/forms/auth.forms/login";
+import { authLogin } from "@/reducers/auth/auth.action";
+import { useAppDispatch, useAppSelector } from "@/reducers/store";
 import { Bird } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 interface PageProps {
   params: {
     slug: string;
@@ -9,23 +12,20 @@ interface PageProps {
 }
 export default function LoginPage({ params }: PageProps) {
   const router = useRouter();
+  const dispatch = useAppDispatch();
+  const { isLoggedIn } = useAppSelector((root) => root.auth);
   const handleClick = async (password: string) => {
     const body = {
       password,
       email: decodeURIComponent(params.slug),
     };
-    const resp = await fetch("/api/auth/login", {
-      method: "POST",
-      body: JSON.stringify(body),
-      headers: {
-        content: "application/json",
-      },
-    });
-    const data = await resp.json();
-    if (resp.status === 200) {
+    dispatch(authLogin(body));
+  };
+  useEffect(() => {
+    if (isLoggedIn) {
       router.push("/");
     }
-  };
+  }, [isLoggedIn]);
   return (
     <div className="w-full lg:h-[calc(100vh-3rem)] h-[calc(100vh-200px)] grid grid-cols-3">
       <div className="lg:col-span-1 col-span-3 w-full flex justify-center items-center h-full">

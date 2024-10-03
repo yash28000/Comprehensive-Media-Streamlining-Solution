@@ -19,7 +19,6 @@ export const AccountInfoReg = ({
   setId: (e: string) => void;
 }) => {
   const [verifyDisabled, setVerifyDisabled] = useState(true);
-
   const [email, setEmail] = useState("");
   const [opt, setOtps] = useState("");
   const infoRef = useRef<HTMLButtonElement>(null);

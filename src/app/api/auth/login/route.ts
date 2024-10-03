@@ -1,26 +1,22 @@
-import { userLogin } from "@/utils/auth.services/auth.service";
+// import { userLogin } from "@/utils/auth.services/auth.service";
 import { NextRequest, NextResponse } from "next/server";
-import { serialize } from "cookie";
+import { userLogin } from "@/services/auth/auth.services";
 export const POST = async (req: NextRequest) => {
-  const body = await req.json();
-  const resp = await userLogin(body);
-  const data = await resp.json();
-  if (resp.status === 200) {
-    const serialized = serialize("session", data["access_token"], {
-      httpOnly: true,
-      sameSite: "strict",
-      path: "/",
+  try {
+    const body = await req.json();
+    const resp = await userLogin(body);
+    const data = await resp.json();
+    const cookies = resp.headers.get("set-cookie");
+    return new NextResponse(JSON.stringify(data), {
+      headers: {
+        "set-cookie": cookies || "",
+      },
     });
-    return new NextResponse(
-      JSON.stringify({
-        status: true,
-      }),
-      {
-        headers: {
-          "Set-Cookie": serialized,
-        },
-      }
+  } catch (error) {
+    console.error("Error:", error);
+    return NextResponse.json(
+      { error: "Something went wrong" },
+      { status: 500 }
     );
   }
-  return new NextResponse(JSON.stringify(data));
 };
