@@ -1,4 +1,4 @@
-import { getCookie } from "cookies-next";
+import { getCookie, deleteCookie } from "cookies-next";
 import { NextRequest, NextResponse } from "next/server";
 
 // Check if we're on the client side
@@ -22,6 +22,11 @@ export const getClientToken = () => {
   return null; // Return null if no token is found
 };
 
+export const clearCookies = () => {
+  deleteCookie("accessToken");
+  deleteCookie("refreshToken");
+};
+
 // Retrieve token on the server side
 export const getServerToken = (req: NextRequest, res: NextResponse) => {
   const cookie = getCookie("session", { req, res });
@@ -34,4 +39,15 @@ export const getServerToken = (req: NextRequest, res: NextResponse) => {
     }
   }
   return null; // Return null if no token is found
+};
+
+export const getDateString = (iso: string) => {
+  const date = new Date(iso);
+  const options = {
+    year: "numeric" as const,
+    month: "long" as const,
+    day: "numeric" as const,
+  };
+  const formattedDate = date.toLocaleDateString("en-US", options);
+  return formattedDate;
 };

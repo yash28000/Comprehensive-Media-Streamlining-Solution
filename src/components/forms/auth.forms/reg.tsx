@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 
 export const RegForm = () => {
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
   const [id, setId] = useState("");
   const [disabled, setDisabled] = useState(true);
   const [otp, setOtp] = useState("");

@@ -5,7 +5,6 @@ import {
   setAuthLoading,
   setAuthLogout,
 } from "./auth.slice";
-import { userLogin } from "@/services/auth/auth.services";
 import { ILoginPayload } from "@/services/auth/auth.types";
 
 export const authLogin =

@@ -5,7 +5,6 @@ import { InfoIcon, MoveRight } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
 interface LoginFormProps {
   state: "info" | "auth";
   info?: string;
@@ -38,6 +37,9 @@ export const LoginForm = ({ state, info, onSubmit }: LoginFormProps) => {
                 value={input}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setInput(e.target.value)
+                }
+                onKeyDown={(e) =>
+                  e.key === "Enter" && onSubmit && onSubmit(input)
                 }
               />
             </span>
@@ -72,6 +74,9 @@ export const LoginForm = ({ state, info, onSubmit }: LoginFormProps) => {
                 value={input}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setInput(e.target.value)
+                }
+                onKeyDown={(e) =>
+                  e.key === "Enter" && onSubmit && onSubmit(input)
                 }
               />
             </span>

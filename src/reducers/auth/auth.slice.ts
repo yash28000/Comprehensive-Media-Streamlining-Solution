@@ -1,8 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ref } from "yup";
 
 const UserPayload = {
-  user:{},
+  user: {},
   accessToken: "",
   refreshToken: "",
 };
@@ -28,8 +27,8 @@ export const authSlice = createSlice({
     setAuthError: (state, action) => {
       state.error = action.payload;
     },
-    setAuthLogout: (state) => {
-      return (state = initialState);
+    setAuthLogout: () => {
+      return initialState;
     },
   },
 });

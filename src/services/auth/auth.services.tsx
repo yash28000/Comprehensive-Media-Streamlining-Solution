@@ -1,4 +1,4 @@
-import { getClientToken } from "@/utils/functions";
+
 import { ILoginPayload, IRegPayload } from "./auth.types";
 
 export const registerUser = (payload: IRegPayload) => {

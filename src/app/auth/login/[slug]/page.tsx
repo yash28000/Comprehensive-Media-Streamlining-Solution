@@ -2,7 +2,6 @@
 import { LoginForm } from "@/components/forms/auth.forms/login";
 import { authLogin } from "@/reducers/auth/auth.action";
 import { useAppDispatch, useAppSelector } from "@/reducers/store";
-import { Bird } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 interface PageProps {

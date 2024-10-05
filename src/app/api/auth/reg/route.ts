@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-export const POST = async (req: NextRequest, res: NextResponse) => {
+export const POST = async (req: NextRequest) => {
   try {
     const body = await req.json();
     const resp = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/verify`, {

@@ -1,10 +1,8 @@
 "use client";
 import { Button } from "@/components/commons/button";
 import { Input } from "@/components/commons/input";
-import { useAppDispatch } from "@/reducers/store";
 import { useFormik } from "formik";
 import { useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
 import * as Yup from "yup";
 
 const SignupSchema = Yup.object().shape({
@@ -30,7 +28,6 @@ export const AuthInfoForm = ({
   setId: (e: string) => void;
 }) => {
   const [loading, setLoading] = useState(false);
-  const dispatch = useAppDispatch();
   const formik = useFormik({
     initialValues: {
       email: "",
