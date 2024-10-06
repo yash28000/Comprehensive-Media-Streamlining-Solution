@@ -19,6 +19,7 @@ export default function LoginPage({ params }: PageProps) {
       email: decodeURIComponent(params.slug),
     };
     dispatch(authLogin(body));
+    router.push("/");
   };
   useEffect(() => {
     if (isLoggedIn) {
