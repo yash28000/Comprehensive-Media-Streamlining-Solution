@@ -22,23 +22,23 @@ export const POST = async (req: NextRequest) => {
 };
 
 export const GET = async (req: NextRequest) => {
-  try{
-    const resp = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user`,{
+  try {
+    const resp = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user`, {
       method: "GET",
       headers: {
         "Content-type": "application/json",
-        "Cookie": req.headers.get("cookie") || ""
+        Cookie: req.headers.get("cookie") || "",
       },
       credentials: "include",
     });
     const data = await resp.json();
     console.log(data);
     return new NextResponse(JSON.stringify(data));
-  }catch(error){
+  } catch (error) {
     console.error("Error:", error);
     return NextResponse.json(
       { error: "Something went wrong" },
       { status: 500 }
     );
   }
-}
+};

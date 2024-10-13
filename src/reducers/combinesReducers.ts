@@ -3,6 +3,7 @@ import { HYDRATE } from "next-redux-wrapper";
 import { isClient } from "@/utils/functions";
 import authReducer from "./auth/auth.slice";
 import userReducer from "./user/user.slice";
+import videoReducer from "./videos/videos.slice";
 declare global {
   interface Window {
     isInitialHydrationComplete: boolean;
@@ -12,7 +13,8 @@ declare global {
 const combinedReducers = combineReducers({
   // Add reducers here
   auth: authReducer,
-  user: userReducer
+  user: userReducer,
+  video: videoReducer
 });
 //@ts-expect-error heij
 export const crossSliceReducer = (state, { type, payload }) => {

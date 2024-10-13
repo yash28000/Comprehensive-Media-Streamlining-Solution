@@ -1,35 +1,25 @@
 import { toast } from "@/hooks/use-toast";
 import { AppDispatch } from "../store";
 import { setLoading, setLogout, setUser, setUserAuthError } from "./user.slice";
+import { IUser } from "@/services/user/user.types";
 
-export const setUserDetails = () => async (dispatch: AppDispatch) => {
-  try {
-    dispatch(setLoading(true));
-    const resp = await fetch("/api/auth/login", {
-      method: "GET",
-      headers: {
-        content: "application/json",
-      },
-      credentials: "include",
-    });
-    const data = await resp.json();
-    if (data.statusCode === 201) {
-      dispatch(setUser(data.data.user));
-    } else {
-      dispatch(setUserAuthError(data.message));
+export const setUserDetails =
+  (payload: IUser) => async (dispatch: AppDispatch) => {
+    try {
+      dispatch(setLoading(true));
+      dispatch(setUser(payload));
+    } catch (error) {
+      if (error instanceof Error) {
+        dispatch(setUserAuthError(error.message));
+        toast({
+          title: "Error Occurred",
+          description: error.message,
+        });
+      } else {
+        dispatch(setUserAuthError("An unknown error occurred"));
+      }
     }
-  } catch (error) {
-    if (error instanceof Error) {
-      dispatch(setUserAuthError(error.message));
-      toast({
-        title: "Error Occurred",
-        description: error.message,
-      });
-    } else {
-      dispatch(setUserAuthError("An unknown error occurred"));
-    }
-  }
-};
+  };
 
 export const logoutUser = () => async (dispatch: AppDispatch) => {
   try {
@@ -39,7 +29,7 @@ export const logoutUser = () => async (dispatch: AppDispatch) => {
       credentials: "include",
     });
     dispatch(setLogout());
-    window.location.href = "/auth/login";
+    // window.location.href = "/auth/login";
   } catch (error) {
     if (error instanceof Error) {
       dispatch(setUserAuthError(error.message));
