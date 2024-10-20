@@ -23,7 +23,8 @@ export default function UserAuthVerification({
         credentials: "include",
       });
       return await response.json();
-    },{
+    },
+    {
       enabled: !isLoggedIn && !pathname.includes("auth"),
     }
   );

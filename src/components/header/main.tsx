@@ -28,8 +28,14 @@ export const MainHeader = ({
             >
               <MenuIcon size={25} />
             </Button>
-            <Link href="/" className="text-2xl font-semibold flex items-center">
-              el<span className="font-bold hidden md:block font-kanit">videos</span>
+            <Link
+              href="/"
+              className="lg:text-2xl md:text-2xl text-lg font-semibold flex items-center"
+            >
+              el
+              <span className="font-bold lg:text-2xl md:text-2xl text-lg md:block font-kanit">
+                videos
+              </span>
             </Link>
           </span>
           <div className="group hidden md:flex w-full h-10 rounded-md max-w-[500px] py-1 pl-3 items-center border-[1px] border-zinc-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
