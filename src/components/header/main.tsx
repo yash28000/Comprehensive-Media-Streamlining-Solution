@@ -4,7 +4,8 @@ import Link from "next/link";
 import { Input } from "../commons/input";
 import { Button } from "../ui/button";
 import { UserProfile } from "../pages/avatar";
-
+import { useRouter } from "next/navigation";
+import { ChangeEvent, useState } from "react";
 export const MainHeader = ({
   setSidebar,
   sidebar,
@@ -12,6 +13,13 @@ export const MainHeader = ({
   setSidebar: (e: boolean) => void;
   sidebar: boolean;
 }) => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter();
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    router.push(`/search?q=${searchQuery}`);
+  };
   return (
     <div className="w-full h-16">
       <div className="h-full w-full items-center flex px-2 justify-between">
@@ -38,14 +46,21 @@ export const MainHeader = ({
               </span>
             </Link>
           </span>
-          <div className="group hidden md:flex w-full h-10 rounded-md max-w-[500px] py-1 pl-3 items-center border-[1px] border-zinc-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+          <form
+            onSubmit={handleSearch}
+            className="group hidden md:flex w-full h-10 rounded-md max-w-[500px] py-1 pl-3 items-center border-[1px] border-zinc-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          >
             <Earth size={20} />
             <Separator orientation="vertical" className="ml-3" />
-            <Input classname="border-none focus:ring-0 h-8 rounded-md max-w-[500px] w-full" />
-            <Button variant="link" className="text-sm">
+            <Input
+              classname="border-none focus:ring-0 h-8 rounded-md max-w-[500px] w-full"
+              value={searchQuery}
+              onChange={(e:ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
+            />
+            <Button variant="link" className="text-sm" type="submit">
               <Search size={20} />
             </Button>
-          </div>
+          </form>
         </div>
         <div className="flex items-center space-x-1">
           <Button variant="link" className="text-sm block md:hidden size-10">

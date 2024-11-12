@@ -1,6 +1,7 @@
 import { IPartialUser } from "../user/user.types";
 
 export interface IVideo {
+  _id: string;
   title: string;
   description: string;
   videoFile: string;

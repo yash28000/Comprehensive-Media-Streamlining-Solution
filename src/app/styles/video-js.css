@@ -1,0 +1,247 @@
+.video-js {
+  aspect-ratio: 16/9;
+  width: 100%;
+  height: auto !important;
+  max-height: 720px;
+}
+
+/* Control bar styling */
+.video-js .vjs-control-bar {
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.3s;
+}
+
+/* Hide control bar when not hovering */
+.video-js:not(:hover) .vjs-control-bar {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Control buttons */
+.video-js .vjs-button {
+  color: #fff;
+}
+
+.video-js .vjs-button:hover {
+  color: #2196f3;
+}
+
+/* Progress bar */
+.video-js .vjs-play-progress {
+  background-color: #2196f3;
+}
+
+.video-js .vjs-progress-control {
+  position: absolute;
+  width: 100%;
+  top: -1.5em;
+  height: 0.5em;
+}
+
+.video-js .vjs-progress-control:hover {
+  height: 1em;
+  top: -2em;
+}
+
+/* Volume panel */
+.video-js .vjs-volume-panel {
+  margin-right: 0.5em;
+}
+
+/* Quality selector */
+.vjs-quality-selector .vjs-menu-button {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.vjs-quality-selector .vjs-icon-placeholder::before {
+  content: '\f110';
+  font-family: 'VideoJS';
+  font-size: 1.8em;
+  line-height: 1.67;
+}
+
+.vjs-quality-selector .vjs-menu {
+  left: -2em;
+}
+
+.vjs-quality-selector .vjs-menu-content {
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  padding: 0;
+  border-radius: 4px;
+}
+
+.vjs-quality-selector .vjs-menu-item {
+  text-transform: none;
+  font-size: 14px !important;
+  padding: 0.5em 1em !important;
+  color: #fff;
+}
+
+.vjs-quality-selector .vjs-menu-item:hover,
+.vjs-quality-selector .vjs-menu-item:focus {
+  background-color: rgba(33, 150, 243, 0.5);
+}
+
+.vjs-quality-selector .vjs-menu-item.vjs-selected {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+.vjs-quality-selector .vjs-menu-title {
+  font-size: 14px;
+  padding: 0.5em 1em;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Make sure quality selector is visible */
+.video-js .vjs-quality-selector {
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* Position the quality selector button */
+.vjs-quality-selector.vjs-menu-button {
+  margin-right: 0.5em;
+}
+
+/* Big play button */
+.video-js .vjs-big-play-button {
+  background-color: rgba(33, 150, 243, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  line-height: 3em;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.video-js:hover .vjs-big-play-button {
+  background-color: #2196f3;
+}
+
+/* Loading spinner */
+.video-js .vjs-loading-spinner {
+  border-color: rgba(33, 150, 243, 0.7);
+}
+
+/* Responsive sizing */
+@media (max-width: 768px) {
+  .video-js {
+    max-height: none;
+  }
+}
+
+/* Resolution menu button */
+.vjs-resolution-button {
+  color: #fff;
+  margin-right: 0.5em;
+}
+
+.vjs-resolution-button .vjs-menu-button {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.vjs-resolution-button .vjs-icon-placeholder::before {
+  content: '\f110';
+  font-family: 'VideoJS';
+  font-size: 1.8em;
+  line-height: 1.67;
+}
+
+.vjs-resolution-button .vjs-menu {
+  left: -2em;
+}
+
+.vjs-resolution-button .vjs-menu-content {
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  padding: 0;
+  border-radius: 4px;
+}
+
+.vjs-resolution-button .vjs-menu-item {
+  text-transform: none;
+  font-size: 14px !important;
+  padding: 0.5em 1em !important;
+  color: #fff;
+}
+
+.vjs-resolution-button .vjs-menu-item:hover,
+.vjs-resolution-button .vjs-menu-item:focus {
+  background-color: rgba(33, 150, 243, 0.5);
+}
+
+.vjs-resolution-button .vjs-menu-item.vjs-selected {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+/* Make sure resolution button is visible */
+.video-js .vjs-resolution-button {
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* Override silvermine quality selector styles */
+.vjs-quality-selector .vjs-menu-button {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.vjs-quality-selector .vjs-icon-placeholder:before {
+  font-family: 'VideoJS';
+  content: '\f110';
+  font-size: 1.8em;
+  line-height: 1.67;
+}
+
+.vjs-menu-button-popup .vjs-menu .vjs-menu-content {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.vjs-menu-button-popup .vjs-menu {
+  left: -3em;
+}
+
+.vjs-menu li {
+  padding: 0.5em 1em;
+  font-size: 14px !important;
+}
+
+.vjs-menu li.vjs-selected {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+.vjs-menu li:focus,
+.vjs-menu li:hover {
+  background-color: rgba(33, 150, 243, 0.5);
+  color: #fff;
+}
+
+/* Make sure the quality selector is visible */
+.vjs-quality-selector.vjs-menu-button {
+  display: block !important;
+  margin-right: 0.5em;
+}
+
+/* Quality selector menu positioning */
+.vjs-quality-selector .vjs-menu {
+  margin: 0;
+  position: absolute;
+  left: -3em;
+  bottom: 2em;
+} 
