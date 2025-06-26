@@ -39,4 +39,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## 📄 Project Report
 
 You can view the full technical report of this project here:  
-👉 [📄 View Full Project Documentation (PDF)](Media report1-4-30.pdf)
+👉 [📄 View Full Project Documentation (PDF)](./Media report1-4-30.pdf)
